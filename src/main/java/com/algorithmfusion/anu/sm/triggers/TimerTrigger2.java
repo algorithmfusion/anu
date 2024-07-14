@@ -25,11 +25,11 @@ public class TimerTrigger2 extends TrigableStateMachineTransition {
 			TextStreamWriter writer,
 			long interval,
 			int ticks,
-			String message) {
+			String timerId) {
 		super(stateMachine, transition);
-		this.timerIntervalMessage = "Timer(" + interval + ")ms";
+		this.timerIntervalMessage = "Timer[" + timerId + "](" + interval + ")ms";
 		TextStreamWriterTextObserver textObserver = new TextStreamWriterTextObserver(writer);
-		TimerPrepareTransitionObserver timerPrepareTransitionObserver = new TimerPrepareTransitionObserver(textObserver, this, interval, ticks, message, timerIntervalMessage);
+		TimerPrepareTransitionObserver timerPrepareTransitionObserver = new TimerPrepareTransitionObserver(textObserver, this, interval, ticks, timerId, timerIntervalMessage);
 		this.prepare = timerPrepareTransitionObserver;
 		this.dispose = new TimerDisposeTransitionObserver(textObserver, timerPrepareTransitionObserver, timerIntervalMessage);
 	}

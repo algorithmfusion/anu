@@ -7,6 +7,7 @@ import com.algorithmfusion.anu.generic.api.TextObserver;
 import com.algorithmfusion.anu.generic.api.Trigable;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.flow.BpmnTransition;
 
 /**
  * 
@@ -41,7 +42,12 @@ public class TimerPrepareTransitionObserver implements TransitionObserver, Suppl
 	@Override
 	public void notify(Transition observable) {
 		timer = new Timer();
-		textObserver.notify("\n" + timerIntervalMessage + " started\n");
+		textObserver.notify("\n" + timerIntervalMessage +
+				" for triggering transition(Id, Name)[" +
+				((BpmnTransition) observable).getId() +
+				"," +
+				((BpmnTransition) observable).getName() +
+				"] started\n");
 		timer.schedule(new TextObserverTriggeringTimeoutTask(textObserver, trigable, ticks, message), 0, interval/ticks);
 	}
 

@@ -17,7 +17,7 @@ public class TriggersFactory {
 		return new TimerTrigger(stateMachine, transition, getTextStreamWriter(), interval, ticks, message);
 	}
 	
-	public static TimerTrigger2 createTimerTrigger2(StateMachine stateMachine, Transition transition, long interval, int ticks, String message) {
-		return new TimerTrigger2(stateMachine, transition, getTextStreamWriter(), interval, ticks, message);
+	public static TimerTrigger2 createTimerTrigger2(StateMachine stateMachine, Transition transition, long interval, int ticks, String timerId) {
+		return new TimerTrigger2(stateMachine, transition, getTextStreamWriter(), interval, ticks, timerId);
 	}
 }
