@@ -2,13 +2,12 @@ package com.algorithmfusion.anu.flow;
 
 import java.util.Collection;
 
+import com.algorithmfusion.anu.generic.api.MutableMultiValueMap;
+import com.algorithmfusion.anu.generic.impl.MutableMultiValueMapImpl;
 import com.algorithmfusion.anu.sm.api.State;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.observers.StateObserver;
 import com.algorithmfusion.anu.sm.observers.TransitionObserver;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
 
 /**
  * 
@@ -16,12 +15,12 @@ import com.google.common.collect.Multimap;
  */
 public class FlowObserversRegistry {
 
-	private Multimap<Transition, TransitionObserver> prepareTransitionsObservers;
-	private Multimap<Transition, TransitionObserver> performTransitionsObservers;
-	private Multimap<Transition, TransitionObserver> disposeTransitionsObservers;
+	private MutableMultiValueMap<Transition, TransitionObserver> prepareTransitionsObservers;
+	private MutableMultiValueMap<Transition, TransitionObserver> performTransitionsObservers;
+	private MutableMultiValueMap<Transition, TransitionObserver> disposeTransitionsObservers;
 	
-	private Multimap<State, StateObserver> enterStateObservers;
-	private Multimap<State, StateObserver> leaveStateObservers;
+	private MutableMultiValueMap<State, StateObserver> enterStateObservers;
+	private MutableMultiValueMap<State, StateObserver> leaveStateObservers;
 
 	private FlowObserversRegistry (Builder builder) {
 		this.prepareTransitionsObservers = builder.prepareTransitionsObservers;
@@ -57,43 +56,43 @@ public class FlowObserversRegistry {
 	
 	public static class Builder {
 		
-		private Multimap<Transition, TransitionObserver> prepareTransitionsObservers;
-		private Multimap<Transition, TransitionObserver> performTransitionsObservers;
-		private Multimap<Transition, TransitionObserver> disposeTransitionsObservers;
+		private MutableMultiValueMap<Transition, TransitionObserver> prepareTransitionsObservers;
+		private MutableMultiValueMap<Transition, TransitionObserver> performTransitionsObservers;
+		private MutableMultiValueMap<Transition, TransitionObserver> disposeTransitionsObservers;
 		
-		private Multimap<State, StateObserver> enterStateObservers;
-		private Multimap<State, StateObserver> leaveStateObservers;
+		private MutableMultiValueMap<State, StateObserver> enterStateObservers;
+		private MutableMultiValueMap<State, StateObserver> leaveStateObservers;
 		
 		public Builder() {
-			this.prepareTransitionsObservers = ArrayListMultimap.create();
-			this.performTransitionsObservers = ArrayListMultimap.create();
-			this.disposeTransitionsObservers = ArrayListMultimap.create();
-			this.enterStateObservers = ArrayListMultimap.create();
-			this.leaveStateObservers = ArrayListMultimap.create();
+			this.prepareTransitionsObservers = new MutableMultiValueMapImpl<>();
+			this.performTransitionsObservers = new MutableMultiValueMapImpl<>();
+			this.disposeTransitionsObservers = new MutableMultiValueMapImpl<>();
+			this.enterStateObservers = new MutableMultiValueMapImpl<>();
+			this.leaveStateObservers = new MutableMultiValueMapImpl<>();
 		}
 		
 		public Builder addPrepareTransitionObserver(Transition transition, TransitionObserver... transitionObservers) {
-			this.prepareTransitionsObservers.putAll(transition, Lists.newArrayList(transitionObservers));
+			this.prepareTransitionsObservers.putAll(transition, transitionObservers);
 			return this;
 		}
 		
 		public Builder addPerformTransitionObserver(Transition transition, TransitionObserver... transitionObservers) {
-			this.performTransitionsObservers.putAll(transition, Lists.newArrayList(transitionObservers));
+			this.performTransitionsObservers.putAll(transition, transitionObservers);
 			return this;
 		}
 		
 		public Builder addDisposeTransitionObserver(Transition transition, TransitionObserver... transitionObservers) {
-			this.disposeTransitionsObservers.putAll(transition, Lists.newArrayList(transitionObservers));
+			this.disposeTransitionsObservers.putAll(transition, transitionObservers);
 			return this;
 		}
 		
 		public Builder addEnterStateObservers(State state, StateObserver... stateObservers) {
-			this.enterStateObservers.putAll(state, Lists.newArrayList(stateObservers));
+			this.enterStateObservers.putAll(state, stateObservers);
 			return this;
 		}
 		
 		public Builder addLeaveStateObservers(State state, StateObserver... stateObservers) {
-			this.leaveStateObservers.putAll(state, Lists.newArrayList(stateObservers));
+			this.leaveStateObservers.putAll(state, stateObservers);
 			return this;
 		}
 		
