@@ -2,7 +2,7 @@ package com.algorithmfusion.anu.sm.base;
 
 import com.algorithmfusion.anu.sm.api.State;
 import com.algorithmfusion.anu.sm.api.Transition;
-import com.algorithmfusion.anu.sm.observers.StateMachineObserver;
+import com.algorithmfusion.anu.sm.observers.api.StateMachineObserver;
 
 /**
  * 

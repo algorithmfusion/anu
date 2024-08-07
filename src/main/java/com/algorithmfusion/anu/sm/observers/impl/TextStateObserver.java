@@ -1,7 +1,8 @@
-package com.algorithmfusion.anu.sm.observers;
+package com.algorithmfusion.anu.sm.observers.impl;
 
 import com.algorithmfusion.anu.generic.api.TextStreamWriter;
 import com.algorithmfusion.anu.sm.api.State;
+import com.algorithmfusion.anu.sm.observers.api.StateObserver;
 
 /**
  * 
@@ -17,8 +18,12 @@ public class TextStateObserver implements StateObserver {
 		this.message = text;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+	
 	@Override
 	public void notify(State state) {
-		writer.writeLine(message);
+		writer.writeLine(getMessage());
 	}
 }

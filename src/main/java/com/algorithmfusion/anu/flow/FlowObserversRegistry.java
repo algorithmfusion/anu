@@ -6,8 +6,8 @@ import com.algorithmfusion.anu.generic.api.MutableMultiValueMap;
 import com.algorithmfusion.anu.generic.impl.MutableMultiValueMapImpl;
 import com.algorithmfusion.anu.sm.api.State;
 import com.algorithmfusion.anu.sm.api.Transition;
-import com.algorithmfusion.anu.sm.observers.StateObserver;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.StateObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 
 /**
  * 

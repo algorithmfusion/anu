@@ -5,7 +5,7 @@ import static com.algorithmfusion.anu.sm.triggers.TriggersFactory.createTimerTri
 import com.algorithmfusion.anu.flow.BpmnFlow;
 import com.algorithmfusion.anu.generic.api.ParameterizedHandler;
 import com.algorithmfusion.anu.sm.api.Transition;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 import com.algorithmfusion.anu.storage.api.ObjectStorage;
 
 /**

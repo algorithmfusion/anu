@@ -15,7 +15,12 @@ public class StringToParameterizedHandler {
 	private final ParameterizedHandler<?> defaultHandler;
 	
 	public StringToParameterizedHandler() {
-		this(null);
+		this(new ParameterizedHandler<>() {
+			@Override
+			public Object handle(Object... parameters) {
+				return null;
+			}
+		});
 	}
 	
 	public StringToParameterizedHandler(ParameterizedHandler<?> defaultHandler) {

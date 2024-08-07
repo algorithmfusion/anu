@@ -3,7 +3,7 @@ package com.algorithmfusion.anu.flow.handlers;
 import java.util.Map;
 
 import com.algorithmfusion.anu.generic.api.ParameterizedHandler;
-import com.algorithmfusion.anu.sm.observers.StateObserver;
+import com.algorithmfusion.anu.sm.observers.api.StateObserver;
 
 /**
  * 

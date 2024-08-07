@@ -1,7 +1,7 @@
 package com.algorithmfusion.anu.flow.handlers;
 
 import com.algorithmfusion.anu.generic.api.ParameterizedHandler;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 import com.algorithmfusion.anu.sm.triggers.TimerTrigger2;
 import com.algorithmfusion.anu.storage.api.ObjectStorage;
 

@@ -29,7 +29,7 @@ public class BaseState implements State {
 			outgoingTransitions.add(outgoing);
 		} else {
 			throw new ConfigurationException(
-					"given outgoing from(" + from + ") state does not match this(" + this + ") state");
+				"given outgoing from(" + from + ") state does not match this(" + this + ") state");
 		}
 	}
 	
@@ -40,7 +40,7 @@ public class BaseState implements State {
 			incomingTransitions.add(incoming);
 		} else {
 			throw new ConfigurationException(
-					"given incoming to(" + to + ") state does not match this(" + this + ") state");
+				"given incoming to(" + to + ") state does not match this(" + this + ") state");
 		}
 	}
 	

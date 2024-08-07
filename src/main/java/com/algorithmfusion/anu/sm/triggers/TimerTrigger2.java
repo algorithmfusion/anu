@@ -4,7 +4,7 @@ import com.algorithmfusion.anu.generic.api.TextStreamWriter;
 import com.algorithmfusion.anu.generic.impl.TextStreamWriterTextObserver;
 import com.algorithmfusion.anu.sm.api.StateMachine;
 import com.algorithmfusion.anu.sm.api.Transition;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 import com.algorithmfusion.anu.sm.observers.timer.TimerDisposeTransitionObserver;
 import com.algorithmfusion.anu.sm.observers.timer.TimerPrepareTransitionObserver;
 

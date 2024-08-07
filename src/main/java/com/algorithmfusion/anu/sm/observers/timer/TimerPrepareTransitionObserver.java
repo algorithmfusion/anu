@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import com.algorithmfusion.anu.generic.api.TextObserver;
 import com.algorithmfusion.anu.generic.api.Trigable;
 import com.algorithmfusion.anu.sm.api.Transition;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 import com.algorithmfusion.anu.flow.BpmnTransition;
 
 /**

@@ -1,4 +1,4 @@
-package com.algorithmfusion.anu.sm.observers;
+package com.algorithmfusion.anu.sm.observers.impl;
 
 import static com.algorithmfusion.anu.generic.impl.TextStreamWriterFactory.getTextStreamWriter;
 

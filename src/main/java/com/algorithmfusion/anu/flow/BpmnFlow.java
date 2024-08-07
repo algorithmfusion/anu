@@ -1,7 +1,7 @@
 package com.algorithmfusion.anu.flow;
 
 import com.algorithmfusion.anu.sm.base.ObservableStateMachine;
-import com.algorithmfusion.anu.sm.observers.StateMachineObserver;
+import com.algorithmfusion.anu.sm.observers.api.StateMachineObserver;
 
 /**
  * 

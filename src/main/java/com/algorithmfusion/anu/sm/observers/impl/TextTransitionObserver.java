@@ -1,7 +1,8 @@
-package com.algorithmfusion.anu.sm.observers;
+package com.algorithmfusion.anu.sm.observers.impl;
 
 import com.algorithmfusion.anu.generic.api.TextStreamWriter;
 import com.algorithmfusion.anu.sm.api.Transition;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 
 /**
  * 
@@ -23,6 +24,6 @@ public class TextTransitionObserver implements TransitionObserver {
 	
 	@Override
 	public void notify(Transition transition) {
-		writer.writeLine(message);	
+		writer.writeLine(getMessage());	
 	}
 }

@@ -1,8 +1,9 @@
-package com.algorithmfusion.anu.sm.observers;
+package com.algorithmfusion.anu.sm.observers.impl;
 
 import java.util.function.Predicate;
 
 import com.algorithmfusion.anu.sm.api.Transition;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 
 /**
  * 

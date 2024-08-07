@@ -7,7 +7,7 @@ import com.algorithmfusion.anu.generic.api.TextStreamWriter;
 import com.algorithmfusion.anu.sm.api.StateMachine;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.exceptions.UnknownCurrentStateException;
-import com.algorithmfusion.anu.sm.observers.TransitionObserver;
+import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
 
 /**
  * 
@@ -20,20 +20,20 @@ public class TimerTrigger extends TrigableStateMachineTransition {
 	private final TextStreamWriter writer;
 	private final long interval;
 	private final int ticks;
-	private final String message;
+	private final String timerId;
 	private final String timerIntervalMessage;
 
 	private final TransitionObserver prepare;
 	private final TransitionObserver dispose;
 	private int ticksCount;
 	
-	public TimerTrigger(StateMachine stateMachine, Transition transition, TextStreamWriter writer, long interval, int ticks, String message) {
+	public TimerTrigger(StateMachine stateMachine, Transition transition, TextStreamWriter writer, long interval, int ticks, String timerId) {
 		super(stateMachine, transition);
 		this.writer = writer;
 		this.interval = interval;
 		this.ticks = ticks;
-		this.message = message;
-		this.timerIntervalMessage = "Timer(" + interval + ")ms";
+		this.timerId = timerId;
+		this.timerIntervalMessage = "Timer[" + timerId + "](" + interval + ")ms";
 		this.prepare = new Prepare();
 		this.dispose = new Dispose();
 	}
@@ -53,7 +53,7 @@ public class TimerTrigger extends TrigableStateMachineTransition {
 		public void run() {
 			if (ticksCount++ >= ticks) {
 				try {
-					writer.writeLine("\n" + message + " invoked");
+					writer.writeLine("\n" + timerId + " invoked");
 					trigger();
 				} catch (UnknownCurrentStateException e) {
 					e.printStackTrace();

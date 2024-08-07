@@ -2,24 +2,22 @@ package com.algorithmfusion.anu.storage.predicates;
 
 import java.util.function.Predicate;
 
-import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.storage.api.ObjectStorage;
 
 /**
  * 
  * @author Hallo Khaznadar
  */
-public class ObjectStoredPredicate implements Predicate<Transition> {
+public class IsKeyStored<KEY> implements Predicate<KEY> {
 
-	private ObjectStorage objectStorage;
+	private final ObjectStorage objectStorage;
 	
-	public ObjectStoredPredicate(ObjectStorage objectStorage) {
+	public IsKeyStored(ObjectStorage objectStorage) {
 		this.objectStorage = objectStorage;
 	}
-	
+
 	@Override
-	public boolean test(Transition transition) {
-		return objectStorage.retrieve(transition, Object.class) != null;
+	public boolean test(KEY key) {
+		return objectStorage.retrieve(key, Object.class) != null;
 	}
-	
 }

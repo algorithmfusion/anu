@@ -1,9 +1,9 @@
 package com.algorithmfusion.anu.flow.handlers;
 
-import static com.algorithmfusion.anu.sm.observers.ObserversFactory.createTextTransitionObserver;
+import static com.algorithmfusion.anu.sm.observers.impl.ObserversFactory.createTextTransitionObserver;
 
 import com.algorithmfusion.anu.generic.api.ParameterizedHandler;
-import com.algorithmfusion.anu.sm.observers.TextTransitionObserver;
+import com.algorithmfusion.anu.sm.observers.impl.TextTransitionObserver;
 
 /**
  * 
