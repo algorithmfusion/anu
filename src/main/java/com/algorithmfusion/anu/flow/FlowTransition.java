@@ -6,12 +6,12 @@ import com.algorithmfusion.anu.sm.base.BaseTransition;
  * 
  * @author Hallo Khaznadar
  */
-public class BpmnTransition extends BaseTransition {
+public class FlowTransition extends BaseTransition {
 
 	private String id;
 	private String name;
 	
-	public BpmnTransition(Builder<?> builder) {
+	public FlowTransition(Builder<?> builder) {
 		super(builder);
 		this.id = builder.id;
 		this.name = builder.name;
@@ -44,8 +44,8 @@ public class BpmnTransition extends BaseTransition {
         }
 
         @Override
-        public BpmnTransition build() {
-            return new BpmnTransition(this);
+        public FlowTransition build() {
+            return new FlowTransition(this);
         }
 	}
 }

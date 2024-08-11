@@ -1,8 +1,8 @@
 package com.algorithmfusion.anu.flow.handlers;
 
-import static com.algorithmfusion.anu.sm.triggers.TriggersFactory.createTimerTrigger2;
+import static com.algorithmfusion.anu.flow.triggers.FlowTriggersFactory.createFlowTimerTrigger;
 
-import com.algorithmfusion.anu.flow.BpmnFlow;
+import com.algorithmfusion.anu.flow.Flow;
 import com.algorithmfusion.anu.generic.api.ParameterizedHandler;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
@@ -20,8 +20,8 @@ public class TimerTriggerPrepareHandler implements ParameterizedHandler<Transiti
 		int interval = Integer.parseInt((String) parameters[1]);
 		int ticks = Integer.parseInt((String) parameters[2]);
 		ObjectStorage objectStorage = (ObjectStorage) parameters[3];		
-		BpmnFlow flow = (BpmnFlow) parameters[4];
+		Flow flow = (Flow) parameters[4];
 		Transition transition = (Transition) parameters[5];
-		return objectStorage.store(timerId, createTimerTrigger2(flow, transition, interval, ticks, timerId)).getPrepare();
+		return objectStorage.store(timerId, createFlowTimerTrigger(flow, transition, interval, ticks, timerId)).getPrepare();
 	}
 }

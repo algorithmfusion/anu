@@ -1,4 +1,4 @@
-package com.algorithmfusion.anu.sm.observers.timer;
+package com.algorithmfusion.anu.flow.observers;
 
 import java.util.Timer;
 import java.util.function.Supplier;
@@ -7,7 +7,7 @@ import com.algorithmfusion.anu.generic.api.TextObserver;
 import com.algorithmfusion.anu.generic.api.Trigable;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
-import com.algorithmfusion.anu.flow.BpmnTransition;
+import com.algorithmfusion.anu.flow.FlowTransition;
 
 /**
  * 
@@ -44,9 +44,9 @@ public class TimerPrepareTransitionObserver implements TransitionObserver, Suppl
 		timer = new Timer();
 		textObserver.notify("\n" + timerIntervalMessage +
 				" for triggering transition(Id, Name)[" +
-				((BpmnTransition) observable).getId() +
+				((FlowTransition) observable).getId() +
 				"," +
-				((BpmnTransition) observable).getName() +
+				((FlowTransition) observable).getName() +
 				"] started\n");
 		timer.schedule(new TextObserverTriggeringTimeoutTask(textObserver, trigable, ticks, message), 0, interval/ticks);
 	}

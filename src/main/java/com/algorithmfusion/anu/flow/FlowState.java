@@ -1,23 +1,21 @@
 package com.algorithmfusion.anu.flow;
 
-import com.algorithmfusion.anu.sm.base.ObservableStateMachine;
-import com.algorithmfusion.anu.sm.observers.api.StateMachineObserver;
+import com.algorithmfusion.anu.sm.base.BaseState;
 
 /**
  * 
  * @author Hallo Khaznadar
  */
-public class BpmnFlow extends ObservableStateMachine {
+public class FlowState extends BaseState {
 
 	private String id;
 	private String name;
 	
-	private BpmnFlow(Builder<?> builder) {
-		super(builder.stateMachineObserver);
+	protected FlowState(Builder<?> builder) {
 		this.id = builder.id;
 		this.name = builder.name;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -25,26 +23,19 @@ public class BpmnFlow extends ObservableStateMachine {
 	public String getName() {
 		return name;
 	}
-
+	
 	public static Builder<?> builder() {
 		return new Builder<>();
 	}
 	
 	public static class Builder<T extends Builder<?>> {
-		
-		private StateMachineObserver stateMachineObserver;
-		private String id;
-		private String name;
+		protected String id;
+		protected String name;
 		
 		@SuppressWarnings("unchecked")
 		protected T self() {
             return (T) this;
         }
-		
-		public T stateMachineObserver(StateMachineObserver stateMachineObserver) {
-			this.stateMachineObserver = stateMachineObserver;
-			return self();
-		}
 		
 		public T id(String id) {
 			this.id = id;
@@ -56,8 +47,8 @@ public class BpmnFlow extends ObservableStateMachine {
 			return self();
 		}
 		
-		public BpmnFlow build() {
-			return new BpmnFlow(this);
+		public FlowState build() {
+			return new FlowState(this);
 		}
-	}
+    }
 }

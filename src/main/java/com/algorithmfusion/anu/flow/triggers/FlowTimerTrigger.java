@@ -1,25 +1,26 @@
-package com.algorithmfusion.anu.sm.triggers;
+package com.algorithmfusion.anu.flow.triggers;
 
+import com.algorithmfusion.anu.flow.observers.TimerDisposeTransitionObserver;
+import com.algorithmfusion.anu.flow.observers.TimerPrepareTransitionObserver;
 import com.algorithmfusion.anu.generic.api.TextStreamWriter;
 import com.algorithmfusion.anu.generic.impl.TextStreamWriterTextObserver;
 import com.algorithmfusion.anu.sm.api.StateMachine;
 import com.algorithmfusion.anu.sm.api.Transition;
 import com.algorithmfusion.anu.sm.observers.api.TransitionObserver;
-import com.algorithmfusion.anu.sm.observers.timer.TimerDisposeTransitionObserver;
-import com.algorithmfusion.anu.sm.observers.timer.TimerPrepareTransitionObserver;
+import com.algorithmfusion.anu.sm.triggers.TrigableStateMachineTransition;
 
 /**
  * 
  * @author Hallo Khaznadar
  */
-public class TimerTrigger2 extends TrigableStateMachineTransition {
+public class FlowTimerTrigger extends TrigableStateMachineTransition {
 
 	private final String timerIntervalMessage;
 
 	private final TransitionObserver prepare;
 	private final TransitionObserver dispose;
 	
-	public TimerTrigger2(
+	public FlowTimerTrigger(
 			StateMachine stateMachine,
 			Transition transition,
 			TextStreamWriter writer,
