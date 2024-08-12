@@ -40,12 +40,12 @@ public abstract class BaseStateMachine implements StateMachine {
 		this.current = state;
 	}
 	
-	private void validateTransitionOnState(Transition transition, State state) throws UnknownCurrentStateException {
+	private static void validateTransitionOnState(Transition transition, State state) throws UnknownCurrentStateException {
 		if (state != null) {
 			if (!state.hasOutgoingTransition(transition)) {
 				throw new ConfigurationException(
 						"Current(" + state + ") state does not have such outgoing transition(" + transition + ")");
-			} else if(!current.equals(transition.getFrom())) {
+			} else if(!state.equals(transition.getFrom())) {
 				throw new ConfigurationException(
 						"Current(" + state + ") state does not match transition(" + transition + ") from(" + transition.getFrom() + ") state");
 			}
