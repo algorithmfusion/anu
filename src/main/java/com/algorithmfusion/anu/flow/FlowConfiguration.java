@@ -13,6 +13,12 @@ import com.algorithmfusion.anu.generic.impl.StringToParameterizedHandler;
  */
 public class FlowConfiguration {
 	
+	static final String TEXT_STATE_OBSERVER = "TextStateObserver";
+	static final String CONTEXT = "Context";
+	static final String TEXT_TRANSITION_OBSERVER = "TextTransitionObserver";
+	static final String TIMER_TRIGGER_PREPARE = "TimerTriggerPrepare";
+	static final String TIMER_TRIGGER_DISPOSE = "TimerTriggerDispose";
+	
 	private final StringToParameterizedHandler idToHandler;
 	
 	public FlowConfiguration() {
@@ -25,11 +31,11 @@ public class FlowConfiguration {
 	}
 
 	private void configure() {
-		idToHandler.registerIdToHandler("TextStateObserver", new TextStateObserverHandler());
-		idToHandler.registerIdToHandler("Context", new ContextHandler());
+		idToHandler.registerIdToHandler(TEXT_STATE_OBSERVER, new TextStateObserverHandler());
+		idToHandler.registerIdToHandler(CONTEXT, new ContextHandler());
 
-		idToHandler.registerIdToHandler("TextTransitionObserver", new TextTransitionObserverHandler());
-		idToHandler.registerIdToHandler("TimerTriggerPrepare", new TimerTriggerPrepareHandler());
-		idToHandler.registerIdToHandler("TimerTriggerDispose", new TimerTriggerDisposeHandler());
+		idToHandler.registerIdToHandler(TEXT_TRANSITION_OBSERVER, new TextTransitionObserverHandler());
+		idToHandler.registerIdToHandler(TIMER_TRIGGER_PREPARE, new TimerTriggerPrepareHandler());
+		idToHandler.registerIdToHandler(TIMER_TRIGGER_DISPOSE, new TimerTriggerDisposeHandler());
 	}
 }
