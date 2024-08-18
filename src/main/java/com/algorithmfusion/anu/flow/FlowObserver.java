@@ -20,10 +20,6 @@ public class FlowObserver implements StateMachineObserver {
 	public void setFlowObserversRegistry(FlowObserversRegistry flowObserversRegistry) {
 		this.flowObserversRegistry = flowObserversRegistry;
 	}
-
-	public FlowObserversRegistry getFlowObserversRegistry() {
-		return flowObserversRegistry;
-	}
 	
 	@Override
 	public void leavingStateNotification(State state) {
@@ -68,15 +64,15 @@ public class FlowObserver implements StateMachineObserver {
 
 	private void notifyLeaveStateObservers(State state) {
 		Collection<StateObserver> leaveStateObservers = flowObserversRegistry.getLeaveStateObservers(state);
-		notifyStateObservers(state, leaveStateObservers);
+		notifyStateObservers(leaveStateObservers, state);
 	}
 
 	private void notifyEnterStateObservers(State state) {
 		Collection<StateObserver> enterStateObservers = flowObserversRegistry.getEnterStateObservers(state);
-		notifyStateObservers(state, enterStateObservers);
+		notifyStateObservers(enterStateObservers, state);
 	}
 	
-	private void notifyStateObservers(State state, Collection<StateObserver> stateObservers) {
+	private void notifyStateObservers(Collection<StateObserver> stateObservers, State state) {
 		if (stateObservers != null) {
 			for (StateObserver leaveStateObserver : stateObservers) {
 				leaveStateObserver.notify(state);
