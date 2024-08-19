@@ -1,6 +1,7 @@
 package com.algorithmfusion.anu.generic.api;
 
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * 
@@ -15,4 +16,6 @@ public interface MultiValueMap<KEY, VALUE> {
 	Collection<VALUE> putAll(KEY key, Collection<VALUE> values);
 	
 	Collection<VALUE> get(KEY key);
+	
+	Set<KEY> keySet();
 }

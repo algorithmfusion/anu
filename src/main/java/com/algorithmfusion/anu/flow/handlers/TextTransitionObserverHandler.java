@@ -15,5 +15,4 @@ public class TextTransitionObserverHandler implements ParameterizedHandler<TextT
 	public TextTransitionObserver handle(Object... parameters) {
 		return createTextTransitionObserver((String) parameters[0]);
 	}
-
 }

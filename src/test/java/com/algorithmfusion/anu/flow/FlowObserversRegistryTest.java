@@ -41,7 +41,7 @@ class FlowObserversRegistryTest {
 						.id("transitionAtoB_id")
 						.name("transitionAtoB_name")
 						.from(stateA)
-						.to(stateA)
+						.to(stateB)
 					.build();
 		
 		this.prepareTransitionObserver = mock(TransitionObserver.class);

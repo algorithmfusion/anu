@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,5 +56,8 @@ abstract class MultiValueMapImplTest {
 
 		actual = mvm.get(k2);
 		assertThat(actual).containsExactly(k2v1, k2v2, k2v3, k2v4, k2v5);
+		
+		Set<String> actualKeySet = mvm.keySet();
+		assertThat(actualKeySet).containsExactly(k1, k2);
 	}
 }

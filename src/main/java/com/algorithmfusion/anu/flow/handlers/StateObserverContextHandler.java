@@ -9,7 +9,7 @@ import com.algorithmfusion.anu.sm.observers.api.StateObserver;
  * 
  * @author Hallo Khaznadar
  */
-public class ContextHandler implements ParameterizedHandler<StateObserver> {
+public class StateObserverContextHandler implements ParameterizedHandler<StateObserver> {
 
 	@Override
 	public StateObserver handle(Object... parameters) {
