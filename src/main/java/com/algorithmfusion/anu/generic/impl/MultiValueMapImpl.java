@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import com.algorithmfusion.anu.generic.api.MultiValueMap;
 
@@ -46,6 +47,11 @@ public abstract class MultiValueMapImpl<KEY, VALUE> implements MultiValueMap<KEY
 		return keyToValuesMap.get(key);
 	}
 
+	@Override
+	public Set<KEY> keySet() {
+		return keyToValuesMap.keySet();
+	}
+	
 	private Collection<VALUE> getOrCreateEmptyValuesIfAbsent(KEY key) {
 		return keyToValuesMap.computeIfAbsent(key, k -> new ArrayList<VALUE>());
 	}
