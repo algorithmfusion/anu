@@ -1,6 +1,6 @@
 package com.algorithmfusion.anu.flow;
 
-import com.algorithmfusion.anu.flow.handlers.ContextHandler;
+import com.algorithmfusion.anu.flow.handlers.StateObserverContextHandler;
 import com.algorithmfusion.anu.flow.handlers.TextStateObserverHandler;
 import com.algorithmfusion.anu.flow.handlers.TextTransitionObserverHandler;
 import com.algorithmfusion.anu.flow.handlers.TimerTriggerDisposeHandler;
@@ -29,10 +29,14 @@ public class FlowConfiguration {
 	public StringToParameterizedHandler getIdToHandler() {
 		return idToHandler;
 	}
+	
+	public static String asString(FlowObservableLifeCycle flowObservableLifeCycle) {
+		return flowObservableLifeCycle.name();
+	}
 
 	private void configure() {
 		idToHandler.registerIdToHandler(TEXT_STATE_OBSERVER, new TextStateObserverHandler());
-		idToHandler.registerIdToHandler(CONTEXT, new ContextHandler());
+		idToHandler.registerIdToHandler(CONTEXT, new StateObserverContextHandler());
 
 		idToHandler.registerIdToHandler(TEXT_TRANSITION_OBSERVER, new TextTransitionObserverHandler());
 		idToHandler.registerIdToHandler(TIMER_TRIGGER_PREPARE, new TimerTriggerPrepareHandler());
