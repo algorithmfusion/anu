@@ -28,12 +28,12 @@ public class TextObserverTriggeringTimeoutTask extends TimerTask {
 
 	@Override
 	public void run() {
-		if (ticksCount++ >= ticks) {
+		if (++ticksCount > ticks) {
 			try {
 				textObserver.notify("\n" + message + " triggered\n");
 				trigable.trigger();
 			} catch (UnknownCurrentStateException e) {
-				e.printStackTrace();
+				textObserver.notify(e.getMessage());
 			}
 		} else {
 			textObserver.notify(".");
