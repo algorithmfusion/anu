@@ -36,6 +36,7 @@ public class TimerTrigger extends TrigableStateMachineTransition {
 		this.timerIntervalMessage = "Timer[" + timerId + "](" + interval + ")ms";
 		this.prepare = new Prepare();
 		this.dispose = new Dispose();
+		this.ticksCount = 0;
 	}
 
 	public TransitionObserver getPrepare() {
@@ -51,12 +52,12 @@ public class TimerTrigger extends TrigableStateMachineTransition {
 		
 		@Override
 		public void run() {
-			if (ticksCount++ >= ticks) {
+			if (++ticksCount > ticks) {
 				try {
 					writer.writeLine("\n" + timerId + " invoked");
 					trigger();
 				} catch (UnknownCurrentStateException e) {
-					e.printStackTrace();
+					writer.writeLine(e.getMessage());
 				}
 			} else {
 				writer.write(".");
